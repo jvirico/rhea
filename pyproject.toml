@@ -23,6 +23,7 @@ python = "^3.9"
 # ansible = { git = "https://github.com/ansible/ansible.git", tag = "v2.6.6" }
 ## or
 # ansible = { git = "https://github.com/ansible/ansible.git", rev = "e5664c4" }
+rich = "^13.5.2"
 
 [tool.poetry.group.dev.dependencies]
 black = "*"
