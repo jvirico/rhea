@@ -1,4 +1,4 @@
-# (c) Copyright 2023 The Chromosome Project. All rights reserved.
+# (c) Copyright 2023 Rico Corp. All rights reserved.
 
 import logging
 
@@ -19,4 +19,4 @@ def example(name: str) -> int:
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
-    example(name="The Chromosome Project")
+    example(name="Rico Corp")

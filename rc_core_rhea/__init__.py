@@ -1,1 +1,1 @@
-# (c) Copyright 2023 The Chromosome Project. All rights reserved.
+# (c) Copyright 2023 Rico Corp. All rights reserved.

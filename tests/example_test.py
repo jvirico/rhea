@@ -1,4 +1,4 @@
-# (c) Copyright 2023 The Chromosome Project. All rights reserved.
+# (c) Copyright 2023 Rico Corp. All rights reserved.
 
 """
 Please follow pytest best practices detailed here https://docs.pytest.org/en/6.2.x/goodpractices.html
@@ -14,4 +14,4 @@ from rc_core_rhea.example import example
 
 
 def test_example() -> None:
-    assert example(name="The Chromosome Project") == 22
+    assert example(name="Rico Corp") == 22
