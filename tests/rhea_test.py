@@ -1,31 +1,27 @@
 # (c) Copyright 2023 Rico Corp. All rights reserved.
 from pathlib import Path
-import pytest
 
-from rc_core_rhea import ProvenanceComponent, DataInstance, DataOperation, DataPipeline, DataSet
+import pytest
 from rich.tree import Tree
+
+from rc_core_rhea import DataInstance, DataOperation, DataPipeline, DataSet, ProvenanceComponent
 
 
 class ConcreteComponent(ProvenanceComponent):
     def generate_triplets(self) -> list[str]:
         """returns rdf definition of component"""
-        pass
+        return []
 
     def generate_cli_tree(self) -> Tree:
         """return rich.Tree object for CLI representation"""
-        pass
+        return Tree("test")
 
     def list_component_names(self) -> list[str]:
         """return list of component names"""
-        pass
+        return []
 
 
-def test_invalid_rdf_string():
-    with pytest.raises(ValueError):
-        DataInstance("Invalid Name!")
-
-
-def test_rdf_string_validation():
+def test_rdf_string_validation() -> None:
     valid_name = "validName_123"
     invalid_name = "invalid name!"
 
@@ -37,7 +33,7 @@ def test_rdf_string_validation():
         ConcreteComponent(invalid_name)
 
 
-def test__data_instance__adding_invalid_attributes():
+def test__data_instance__adding_invalid_attributes() -> None:
     with pytest.raises(ValueError):
         DataInstance("Instance", {"invalid name": "value"})
 
@@ -45,7 +41,7 @@ def test__data_instance__adding_invalid_attributes():
         DataInstance("Instance", {"name": "invalid value"})
 
 
-def test__data_instance__methods():
+def test__data_instance__methods() -> None:
     instance = DataInstance("instance1", {"attr1": "value1"})
     assert instance.name == "instance1"
     assert instance.attributes == {"attr1": "value1"}
@@ -63,7 +59,7 @@ def test__data_instance__methods():
     assert names == ["instance1"]
 
 
-def test__data_set__methods():
+def test__data_set__methods() -> None:
     instance1 = DataInstance("instance1", {"attr1": "value1"})
     instance2 = DataInstance("instance2", {"attr2": "value2"})
 
@@ -83,7 +79,7 @@ def test__data_set__methods():
     assert set(names) == {"dataset1", "instance1", "instance2"}
 
 
-def test__data_operation__methods():
+def test__data_operation__methods() -> None:
     dataset1 = DataSet("dataset1")
     dataset2 = DataSet("dataset2")
 
@@ -104,7 +100,7 @@ def test__data_operation__methods():
     assert set(names) == {"operation1", "dataset1", "dataset2"}
 
 
-def test__data_pipeline__methods():
+def test__data_pipeline__methods() -> None:
     operation1 = DataOperation("operation1")
     operation2 = DataOperation("operation2")
 
@@ -124,15 +120,15 @@ def test__data_pipeline__methods():
     assert set(names) == {"pipeline1", "operation1", "operation2"}
 
 
-def test__data_instance__save_triplets_to_file(tmp_path):
+def test__data_instance__save_triplets_to_file(tmp_path: Path) -> None:
     instance = DataInstance("Instance1", {"attribute1": "value1"})
     file = tmp_path / "triplets.txt"
-    instance.save_triplets_to_file(file)
+    instance.save_triplets_to_file(str(file))
 
     assert file.read_text().count("\n") > 0  # Ensure something was written to the file
 
 
-def test__provenance_component__clean_duplicated_triplets():
+def test__provenance_component__clean_duplicated_triplets() -> None:
     triplets = ["triplet1", "triplet2", "triplet1", "triplet3", "triplet2"]
     cleaned = ProvenanceComponent.clean_duplicated_triplets(triplets)
     assert set(cleaned) == set(["triplet1", "triplet2", "triplet3"])
