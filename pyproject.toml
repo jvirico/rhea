@@ -33,6 +33,7 @@ mypy = "*"
 pycln = "*"
 pytest = "*"
 pyupgrade = "*"
+pytest-cov = "^4.1.0"
 
 [tool.black]
 line-length = 120
