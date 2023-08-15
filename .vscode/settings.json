@@ -1,0 +1,18 @@
+{
+  "isort.args": [
+    "--profile=black",
+    "--line-length=120"
+  ],
+  "python.formatting.blackArgs": [
+    "--line-length=120"
+  ],
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.testing.pytestArgs": [
+    "tests"
+  ],
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestPath": "python3 -m pytest",
+  "python.testing.unittestEnabled": false
+}

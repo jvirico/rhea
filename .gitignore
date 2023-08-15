@@ -1,0 +1,7 @@
+# Python
+*.egg-info/
+.dmypy.json
+.mypy_cache/
+.venv*/
+__pycache__/
+dist/

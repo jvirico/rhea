@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "ch-core-rhea"
+version = "0.0.0"
+description = "Rhea is a Python tool to model the provenance at the dataset, feature, attribute, and data transformation levels based on W3C and RDF format."
+authors = [
+    "Javier Rico <jvirico@gmail.com>",
+]
+include = [
+    "LICENSE",
+]
+
+[[tool.poetry.source]]
+name = "pypi-public"
+url = "https://pypi.org/simple/"
+default = true
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+### To add GitHub dependencies please add:
+# ansible = { git = "https://github.com/ansible/ansible.git", branch = "devel" }
+## or
+# ansible = { git = "https://github.com/ansible/ansible.git", tag = "v2.6.6" }
+## or
+# ansible = { git = "https://github.com/ansible/ansible.git", rev = "e5664c4" }
+
+[tool.poetry.group.dev.dependencies]
+black = "*"
+flake8 = "*"
+isort = "*"
+mypy = "*"
+pycln = "*"
+pytest = "*"
+pyupgrade = "*"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+combine_as_imports = true
+line_length = 120
+profile = "black"
+
+[tool.mypy]
+explicit_package_bases = true
+ignore_missing_imports = true
+namespace_packages = true
+pretty = true
+show_column_numbers = true
+show_error_codes = true
+show_error_context = true
+strict = true
+warn_no_return = true
+warn_redundant_casts = true
+warn_unreachable = true
+warn_unused_configs = true
+warn_unused_ignores = true
+
+[build-system]
+requires = [
+    "poetry-core>=1.0.0",
+]
+build-backend = "poetry.core.masonry.api"
