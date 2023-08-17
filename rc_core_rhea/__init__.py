@@ -78,7 +78,7 @@ rc:{attribute_name}_{attribute_value} a rc:AttributeValue ;
 @prefix rc: <http://ont.rheaproject.org/prov#> .
 
 <> a owl:Ontology ;
-    rdfs:label "ch_core_mlops generated"@en ;
+    rdfs:label "rc_core_rhea generated"@en ;
     owl:imports <provenance_squema.ttl> .
 
 """
