@@ -45,12 +45,23 @@ poetry run python -m rc_core_rhea -o output/path/provenance.ttl
 ## Provenance example
 
 **Pipeline Objective**: Process a local folder, enrich it with metadata, and register it to a Data Catalog.
+<br/>
+
 ![Rhea Banner](/img/1_step_pipe.png)
+<div align="center">
 Fig.1 - Logical representation of process.
+</div>
+
+
+<br/>
 
 ![Rhea Banner](/img/1_step_pipe_provenance.png)
+<div align="center">
 Fig.2 - Provenance representation of process.
+</div>
 
+
+<br/>
 
 To represent the provenance of this simple pipeline, we use the next Rhea CLI options:
 > 1. `Create Dataset`
@@ -59,22 +70,30 @@ To represent the provenance of this simple pipeline, we use the next Rhea CLI op
 >    - name = *R0000013_2023_08_14_my_dataset*
 >    - `Attribute`
 >       - name = *version*, value = *1*
-> 3. `Create Dataoperation`
+> 3. `Create DataOperation`
 >    - name = *ch_core_mlops_dataset_register*
 >    - `Attribute`
 >       - name = *release*, value = *0_0_1*
 >    - `hasInput`: *local_folder_dataset*
->    - `hasoutput`: *R0000013_2023_08_14_my_dataset*
+>    - `hasOutput`: *R0000013_2023_08_14_my_dataset*
 > 4. `Save & Exit`
 
+<br/>
+<br/>
 
 Which is represented as a tree in Rhea CLI interface:
 
 ![Rhea Banner](/img/1_step_pipe_tree.png)
+<div align="center">
+Fig.3 - Tree representation in CLI UI.
+</div>
 
+
+<br/>
+<br/>
 
 We will obtain the following `provenance.ttl` definition:
-```json
+```
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -114,6 +133,7 @@ rc:version_1 a rc:AttributeValue ;
     rc:hasValue rc:1 .
 ```
 
+<br/>
 
 ## Contribute
 We welcome contributions! Please see our [contribution guidelines]() for more details.
