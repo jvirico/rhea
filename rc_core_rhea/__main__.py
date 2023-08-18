@@ -3,7 +3,7 @@ import os
 import platform
 import random
 import shutil
-from typing import Any, Final, Optional, Tuple, Union
+from typing import Any, Final, Tuple, Union
 
 import typer
 from rich.console import Console, ConsoleDimensions
@@ -31,22 +31,24 @@ def create(
         "-o",
         "--output",
         help="Output path to provenand file in .ttl format.",
-    )) -> None:
-
+    )
+) -> None:
     clear_terminal()
     with console.screen() as screen:
-        provenance: ProvenanceComponent = display_wizard(provenance_file, screen)  # type:ignore
+        provenance: ProvenanceComponent = display_wizard(provenance_file, screen)
         provenance.save_triplets_to_file(str(provenance_file))
 
     console.print(
-        f"\n>> Provenance saved successfully! <<\n{provenance_file}\n", style=Style.parse("navy_blue on white bold"), justify="center"
+        f"\n>> Provenance saved successfully! <<\n{provenance_file}\n",
+        style=Style.parse("navy_blue on white bold"),
+        justify="center",
     )
 
 
 def display_wizard(
     provenance_file: Union[str, None, ProvenanceComponent],
     screen: Any,
-) -> None:
+) -> ProvenanceComponent:
     layout = Layout(name="tree")
 
     random_id = "".join(random.choices("0123456789", k=5))
