@@ -1,4 +1,8 @@
-![Rhea Banner](/img/rhea.png)
+<div align="center">
+<img src=./img/rhea.png width="500">
+</div>
+
+
 
 # Rhea
 
@@ -47,16 +51,19 @@ poetry run python -m rc_core_rhea -o output/path/provenance.ttl
 **Pipeline Objective**: Process a local folder, enrich it with metadata, and register it to a Data Catalog.
 <br/>
 
-![Rhea Banner](/img/1_step_pipe.png)
 <div align="center">
+<img src=./img/1_step_pipe.png width="500">
+
 Fig.1 - Logical representation of process.
 </div>
 
 
 <br/>
 
-![Rhea Banner](/img/1_step_pipe_provenance.png)
+
 <div align="center">
+<img src=./img/1_step_pipe_provenance.png width="700">
+
 Fig.2 - Provenance representation of process.
 </div>
 
@@ -83,11 +90,11 @@ To represent the provenance of this simple pipeline, we use the next Rhea CLI op
 
 Which is represented as a tree in Rhea CLI interface:
 
-![Rhea Banner](/img/1_step_pipe_tree.png)
 <div align="center">
+<img src=./img/1_step_pipe_tree.png width="500">
+
 Fig.3 - Tree representation in CLI UI.
 </div>
-
 
 <br/>
 <br/>
